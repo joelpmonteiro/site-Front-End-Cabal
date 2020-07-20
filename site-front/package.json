@@ -1,0 +1,77 @@
+{
+    "name": "site-front",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "core-js": "^3.6.5",
+        "intl-tel-input": "^17.0.3",
+        "jquery": "^3.5.1",
+        "js-plugin-circliful": "^2.0.15",
+        "moment": "^2.27.0",
+        "swiper": "^5.4.5",
+        "vue": "^2.6.11",
+        "vue-loading-overlay": "^3.3.2",
+        "vue-phone-number-input": "^1.1.9",
+        "vue-router": "^3.3.4",
+        "vue-swal": "^1.0.0",
+        "vue-tel-input": "^4.4.0",
+        "vuelidate": "^0.7.5"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.4.0",
+        "@vue/cli-plugin-eslint": "^4.4.0",
+        "@vue/cli-service": "^4.4.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {
+            "no-unused-vars": [
+                "warn"
+            ],
+            "no-var": [
+                "off"
+            ],
+            "one-var": [
+                "off"
+            ],
+            "comma-dangle": [
+                "error",
+                {
+                    "arrays": "never",
+                    "objects": "never",
+                    "imports": "never",
+                    "exports": "never",
+                    "functions": "never"
+                }
+            ],
+            "no-undef": [
+                "off"
+            ]
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

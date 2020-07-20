@@ -1,0 +1,11 @@
+FROM node:latest as build-stage
+WORKDIR /site-front
+COPY package*.json ./
+RUN npm install
+COPY ./ .
+RUN npm run build
+
+FROM nginx as production-stage
+RUN mkdir /site-front
+COPY --from=build-stage /site-front/dist /site-front
+COPY nginx.conf /etc/nginx/nginx.conf

@@ -80,6 +80,11 @@ const playersOnline = async() => {
     if (playOnline.status == 200) return playOnline
     else return 0;
 }
+const infoBasic = async() => {
+    let infBasic = await axios.get('infoServer');
+    if (infBasic.status == 200) return infBasic;
+    else return 0;
+}
 
 const noticeAll = async() => {
     let notice = await axios.get('notice/');
@@ -87,4 +92,4 @@ const noticeAll = async() => {
     else return 0
 }
 
-export default { authLogin, register, download, ranking, guild, activationAccount, recoveryPasswordAccount, searCharacterNation, playersOnline, noticeAll };
+export default { authLogin, register, download, ranking, guild, activationAccount, recoveryPasswordAccount, searCharacterNation, playersOnline, infoBasic, noticeAll };

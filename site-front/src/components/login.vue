@@ -27,8 +27,8 @@
                     <span class="color-red">Error!</span> A senha nao é compativel com o usuario.
                 </div>
             </div>
-            <div class="flex-s-c formGroup-button">
-                <router-link to="recovery/password" class="lost-pass" @click="recoveryPassword">Loast Password</router-link>
+            <div class="flex-s-c formGroup-button recoveryPassword">
+                <router-link to="recovery/password" class="lost-pass" @click.prevent="recoveryPasswordFunc">Loast Password</router-link>
                 <!-- <a href="" class="lost-pass">Loast password ?</a> -->
                 <button class="button-small">Login</button>
             </div>
@@ -48,6 +48,8 @@ import axios from '../services/servicesAxios.js';
 import {
     EV
 } from '../services/middleware/eventBus'
+import dom from '../services/dom';
+
 export default {
     name: 'Login',
     data() {
@@ -92,8 +94,9 @@ export default {
             overlay.style.display = 'none'
 
         },
-        recoveryPassword() {
+        recoveryPasswordFunc() {
             this.recoveryPasswordVar = true;
+            console.log('entrou no recovery')
             this.emitEventRecovery(false, 2)
         },
         login() {

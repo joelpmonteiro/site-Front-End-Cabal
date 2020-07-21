@@ -41,21 +41,11 @@
                 <div class="radial-stat">
                     <div class="infoSeverBlock infoSeverBlock_1">
                         <ul>
-                            <li><a href="#">About server</a></li>
-                            <li><a href="#">Vote</a></li>
-                            <li><a href="#">Statisticks</a></li>
-                            <li><a href="#">Forum</a></li>
+                            <li><a><strong>Personagens ({{this.infoBasic.total_personagens}})</strong></a></li>
+                            <li><a><strong>Contas Criadas ({{this.infoBasic.Cadastros}})</strong></a></li>
+                            <li><a><strong>Guild ({{this.infoBasic.guild}})</strong></a></li>
+                            <li><a><strong>Banidos ({{this.infoBasic.banidos}})</strong></a></li>
                         </ul>
-                        <div class="serverStat flex-c-c">
-                            <div class="login-stat">
-                                <i class="online"></i>
-                                Login
-                            </div>
-                            <div class="login-stat">
-                                <i class="offline"></i>
-                                Game
-                            </div>
-                        </div>
                     </div>
                     <!--infoSeverBlock-->
                     <div class="circle-online flex-c-c drop-button" data-tab="infoSeverBlock_1">
@@ -69,27 +59,21 @@
                 <div class="radial-stat">
                     <div class="infoSeverBlock infoSeverBlock_2">
                         <ul>
-                            <li><a href="#">About server</a></li>
-                            <li><a href="#">Vote</a></li>
-                            <li><a href="#">Statisticks</a></li>
-                            <li><a href="#">Forum</a></li>
+                            <li><a><strong>Exp: 200x</strong></a></li>
+                            <li><a><strong>Skill: 100x</strong></a></li>
+                            <li><a><strong>Craft: 100x</strong></a></li>
+                            <li><a><strong>Drop rate: 10x</strong></a></li>
+                            <li><a><strong>Alzes Bomb: 10x</strong></a></li>
+                            <li><a><strong>Alzes rate: 10x</strong></a></li>
+                            <li><a><strong>Pet Exp: 100x</strong></a></li>
+                            <li><a><strong>War Exp: 100x</strong></a></li>
                         </ul>
-                        <div class="serverStat flex-c-c">
-                            <div class="login-stat">
-                                <i class="online"></i>
-                                Login
-                            </div>
-                            <div class="login-stat">
-                                <i class="offline"></i>
-                                Game
-                            </div>
-                        </div>
                     </div>
                     <!--infoSeverBlock-->
                     <div class="circle-online flex-c-c drop-button" data-tab="infoSeverBlock_2">
                         <div class="serverInfo">
-                            <span class="serverInfo_x">NEW x120</span>
-                            <span class="serverInfo_online color-orange">897</span>
+                            <span class="serverInfo_x">Server Info</span>
+                            <span class="serverInfo_online color-orange">Veja</span>
                         </div>
                         <div id="circlestat" class="circlestat" data-dimension="190" data-width="6" data-fontsize="12" data-percent="100" data-fgcolor="#db591a" data-bgcolor="rgba(151, 255, 88, 0)"></div>
                     </div><!-- circle-online -->
@@ -148,31 +132,33 @@
                             <span>2019-09-21</span>
                         </div>
                         <div class="news-block-tab tab-block active" id="news">
-                            <div class="news">
-                                <a href="#"><span class="color-green">[Update]</span> New fixes on PVP</a>
-                                <span class="date">2019-09-23</span>
-                            </div>
-                            <div class="news">
-                                <a href="#"><span class="color-blue">[News]</span> New corrections</a>
-                                <span class="date">2019-09-23</span>
-                            </div>
-                            <div class="news">
-                                <a href="#"><span class="color-yellow">[Event]</span> Implantment of a new PVP Implantment of a new PV</a>
-                                <span class="date">2019-09-23</span>
+                            <div class="news" v-for="(valor,index) in onlythirdNotice" :key="index">
+                                <a href="#" v-if="valor.NameNotice === 'Updates'">
+                                    <span class="color-green">[{{valor.NameNotice}}]</span> {{valor.descNotice}}
+                                </a>
+                                <a href="#" v-else-if="valor.NameNotice == 'Events'">
+                                    <span class="color-yellow">[{{valor.NameNotice}}]</span> {{valor.descNotice}}
+                                </a>
+                                <a href="#" v-else>
+                                    <span class="color-blue">[{{valor.NameNotice}}]</span> {{valor.descNotice}}
+                                </a>
+                                <span class="date">{{valor.data}}</span>
                             </div>
                         </div>
                         <div class="news-block-tab tab-block" id="updates">
-                            <div class="news">
-                                <a href="#"><span class="color-green">[Update]</span> ASDASDASDASDASDASDA</a>
-                                <span class="date">2019-09-23</span>
+                            <div class="news" v-for="(value,index) in onlythirdNoticeUpdate" :key="index">
+                                <a href="#">
+                                    <span class="color-green">[{{value.NameNotice}}]</span> {{value.descNotice}}
+                                </a>
+                                <span class="date">{{value.data}}</span>
                             </div>
-                            <div class="news">
+                            <!-- <div class="news">
                                 <a href="#"><span class="color-blue">[Update]</span> New ADASDASDASDADASDASDAS</a>
                                 <span class="date">2019-09-23</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="news-block-tab tab-block" id="events">
-                            <div class="news">
+                            <div class="news" v-for="(valor, index) in onlythirdNoticeEvnt" :key="index">
                                 <a href="#"><span class="color-yellow">[Events]</span> ASDASDASDASDASDASDA</a>
                                 <span class="date">2019-09-23</span>
                             </div>
@@ -203,6 +189,7 @@ import {
     EV
 } from '../services/middleware/eventBus';
 import axios from '../services/servicesAxios';
+import moment from 'moment';
 export default {
     name: 'Content',
     data() {
@@ -210,12 +197,16 @@ export default {
             styleObj: "background-image: url(../assets/images/slider-img.jpg)",
             msg: false,
             auth: false,
-            players: 0
+            players: 0,
+            noticeAll: {},
+            newArrayListNotice: {},
+            notUpd: {},
+            notEvent: {},
+            infoBasic: {}
         }
     },
     methods: {
         emitEventPlayers(players) {
-            console.log(players)
             EV.emit('players', players)
         },
     },
@@ -225,16 +216,50 @@ export default {
             this.auth = auth;
             //this.$set('msg', foo)
         })
+
     },
     computed: {
         online() {
             return this.players
+        },
+        onlythirdNotice() {
+            for (let e in this.noticeAll) {
+                if (e <= 2) {
+                    this.newArrayListNotice[e] = this.noticeAll[e]
+                }
+            }
+            return this.newArrayListNotice
+        },
+        onlythirdNoticeUpdate() {
+            for (let e in this.noticeAll) {
+                if (this.noticeAll[e].NameNotice == 'Updates') {
+                    if (e <= 3) {
+                        this.notUpd[e] = this.noticeAll[e];
+
+                    }
+
+                }
+            }
+            return this.notUpd
+        },
+        onlythirdNoticeEvnt() {
+            for (let e in this.noticeAll) {
+                if (this.noticeAll[e].NameNotice == 'Events') {
+                    if (e <= 3) {
+                        this.notEvent[e] = this.noticeAll[e];
+
+                    }
+
+                }
+            }
+            return this.notEvent
         }
     },
     mounted() {
         let tagA = document.querySelector('.open_modal')
         let img = tagA.querySelector('img');
 
+        //Players ONline
         axios.playersOnline().then(value => {
             if (value.status == 200) {
                 this.players = value.data.Login;
@@ -245,9 +270,26 @@ export default {
             console.log(err)
         });
 
-        function active(obj, string) {
-            obj.querySelector();
-        }
+        //Informação basica
+        axios.infoBasic().then(value => {
+            if (value.status == 200) {
+                this.infoBasic = value.data.result;
+            } else return this.infoBasic = 0
+        }).catch((err) => {
+            this.infoBasic = 0
+            console.log(err)
+        });
+
+        // todas as noticias do Banco de dados no servidor 
+        axios.noticeAll().then((value) => {
+            this.noticeAll = value.data.notice.filter(x => {
+                let dataewsss = new Date(x.data);
+                return x.data = moment(dataewsss).format('YYYY-MM-DD');
+            });
+
+        }).catch((err) => {
+            console.log(err)
+        })
         //Muda as SubTabs --> entre News,Events etc
         let subtabs = document.querySelector(".news-block");
         let spanTab = subtabs.querySelectorAll('span[data-tab]');
@@ -258,45 +300,38 @@ export default {
 
             event.addEventListener('click', (evt) => {
                 let act = document.querySelector('span.active').classList;
-                console.log(act)
                 if (act == undefined) {
-                    console.log('ELSE IF')
 
                 } else {
-                    console.log(document.querySelector('span.active').classList.remove('active'));
+                    document.querySelector('span.active').classList.remove('active')
 
                     let block = document.querySelector('.news-block-tab.tab-block.active');
 
                     if (dataTab == 'news') {
-                        console.log('news: ', dataTab)
 
                         spanTab[index].classList.length == 2 ? spanTab[index].classList.remove('active') : spanTab[index].classList.add('active');
 
-                        console.log('newssssss: ', document.querySelector("#".concat(dataTab)).classList.add("active"))
+                        // console.log('newssssss: ', document.querySelector("#".concat(dataTab)).classList.add("active"))
                         block.classList.length > 2 ? block.classList.remove('active') : document.querySelector("#".concat(dataTab)).classList.add("active")
 
                     } else if (dataTab == 'updates') {
-                        console.log('updates: ', dataTab)
 
                         spanTab[index].classList.remove('active')
                         spanTab[index].classList.length == 2 ? spanTab[index].classList.remove('active') : spanTab[index].classList.add('active');
 
-                        console.log('newssssss: ', document.querySelector("#".concat(dataTab)).classList.add("active"))
                         block.classList.length > 2 ? block.classList.remove('active') : document.querySelector("#".concat(dataTab)).classList.add("active")
 
                     } else if (dataTab == 'events') {
-                        console.log('events: ', dataTab)
 
                         spanTab[index].classList.remove('active')
                         spanTab[index].classList.length == 2 ? spanTab[index].classList.remove('active') : spanTab[index].classList.add('active');
 
-                        console.log('newssssss: ', document.querySelector("#".concat(dataTab)).classList.add("active"))
+                        document.querySelector("#".concat(dataTab)).classList.add("active")
                         block.classList.length > 2 ? block.classList.remove('active') : document.querySelector("#".concat(dataTab)).classList.add("active")
                     }
                 }
             })
-        })
-        console.log(spanTab);
+        });
 
         (function ($) {
 
@@ -348,7 +383,6 @@ export default {
 
                     if ($(this).data('percent') != undefined) {
                         percent = $(this).data('percent') / 100;
-                        console.log('teste: ', $(this).data('percent'))
                         endPercent = $(this).data('percent');
                     } else {
                         percent = settings.percent / 100;

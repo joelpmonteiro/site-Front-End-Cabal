@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" id="recovery">
     <h1>Account Activation</h1>
     <form class="registration" action="#" @submit.prevent="recoveryPassword" method="post">
         <div class="formGroup">
@@ -100,6 +100,19 @@ export default {
                 })
             }
         }
+    },
+    mounted() {
+        //console.log('recoveryPassworoddd:: ', document.querySelector('.lost-pass'))
+
+        //let loastPassword = document.querySelector('.lost-pass');
+        let modalRegister = document.querySelector('#modal-register');
+        var overlay = document.querySelector('#overlay');
+
+        modalRegister.style.display = 'none';
+        modalRegister.style.top = '15%';
+        modalRegister.style.opacity = '0';
+        overlay.style.display = 'none'
+
     },
 }
 </script>

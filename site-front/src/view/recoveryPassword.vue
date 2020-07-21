@@ -38,12 +38,11 @@ export default {
         return {
             isActivation: false,
             sendUser: '',
-            view:''
+            view: ''
         }
     },
     methods: {
-        valor() {
-        }
+        valor() {}
     },
 
     mounted() {
@@ -56,38 +55,7 @@ export default {
         let body = document.querySelector('body');
         body.removeAttribute('class', 'page')
 
-        $(document).ready(function () {
-            var overlay = $('#overlay');
-            var open_modal = $('.open_modal');
-            var close = $('.modal_close, #overlay');
-            var modal = $('.modal_div');
-            open_modal.click(function (event) {
-                event.preventDefault();
-                var div = $(this).attr('href');
-                overlay.fadeIn(400,
-                    function () {
-                        $(div)
-                            .css('display', 'block')
-                            .animate({
-                                opacity: 1,
-                                top: '20%'
-                            }, 200);
-                    });
-            });
-
-            close.click(function () {
-                modal
-                    .animate({
-                            opacity: 0,
-                            top: '15%'
-                        }, 200,
-                        function () {
-                            $(this).css('display', 'none');
-                            overlay.fadeOut(400);
-                        }
-                    );
-            });
-        });
+        
     },
 }
 </script>

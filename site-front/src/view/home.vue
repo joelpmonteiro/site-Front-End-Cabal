@@ -71,8 +71,13 @@ export default {
         });
 
         const subMenu = document.querySelectorAll('.fastPlay a[href^="\\#"]');
+        const loastPassword = document.querySelectorAll('.recoveryPassword a[href^="\\#"]');
 
         subMenu.forEach(item => {
+            item.addEventListener('click', scrollTese.scrollToIdOnClick);
+        });
+
+        loastPassword.forEach(item => {
             item.addEventListener('click', scrollTese.scrollToIdOnClick);
         });
 

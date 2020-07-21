@@ -1,9 +1,11 @@
 /* eslint-disable */
 
-function getScrollTopByHref1(element) {
+function getScrollTopByHref1(element, AttributeIg) {
     const id = element.getAttribute('href').split('/');
+    console.log('getScrollTopByHref1: ', id)
+    console.log('getScrollTopByHref1: ', element)
     const tool = id[0] + id[1];
-    let element1 = document.getElementById('register');
+    let element1 = document.getElementById(AttributeIg);
     //console.log(tool)
 
     // element1.scrollIntoView({
@@ -28,10 +30,10 @@ function scrollToPosition(to) {
     smoothScrollTo(0, to);
 }
 
-function scrollToIdOnClick(event) {
+function scrollToIdOnClick(event, AttributeIg) {
     event.preventDefault();
-    console.log(event)
-    const to = getScrollTopByHref1(event.currentTarget) - 80;
+    console.log('scrollToIdOnClick: ', event.currentTarget)
+    const to = getScrollTopByHref1(event.currentTarget, AttributeIg) - 80;
     scrollToPosition(to);
 }
 

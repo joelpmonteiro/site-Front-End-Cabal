@@ -45,15 +45,14 @@ export default {
         }
     },
     methods: {
-        valor() {
-        }
+        valor() {}
     },
     created() {
         EV.on('activation', (auth, user) => {
                 this.isActivation = auth;
                 //this.$set('msg', foo)
-            }),
-            EV.on('user', (user) => {
+        }),
+        EV.on('user', (user) => {
                 this.sendUser = user;
                 //this.$set('msg', foo)
             })

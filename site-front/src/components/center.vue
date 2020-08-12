@@ -70,18 +70,18 @@ export default {
     mounted() {
         axios.searCharacterNation(1).then((value) => {
             this.nationCapella = value.data
-            console.log(this.nationCapella.char.length)
+            //console.log(this.nationCapella.char.length)
 
             let formatData = new Date(this.nationCapella.char[0].EndDateTime)
             let dateeeNew = moment(formatData).utc().format('DD-MM-YYYY HH:mm')
-            console.log(dateeeNew)
+            //console.log(dateeeNew)
             this.charInstatWar.capellaNation = {
                 EndDateTime: dateeeNew,
                 capella: this.nationCapella.char[0].char,
                 leng: this.nationCapella.char.length,
                 instantWar: this.nationCapella.instantWar[0].Score
             };
-            console.log(this.charInstatWar.capellaNation.capella)
+            //console.log(this.charInstatWar.capellaNation.capella)
 
             // console.log(this.nationCapella)
             // console.log(this.char.capellaNation.instantWar.Score)

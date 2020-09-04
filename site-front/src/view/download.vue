@@ -22,7 +22,7 @@
                         <div class="flex-c-c">
                             <a  v-bind:href="download.link" class="downloadBlock-block" v-for="download in downloadArray.downloads" :key="download.id" target="blank">
                                 <img src="../assets/images/drive-icon.png" alt="" v-if="download.nomeServidor === 'Google Drive'">
-                                <img src="../assets/images/dropbox-icon.png" alt="" v-if="download.nomeServidor === 'Dropbox'">
+                                <img src="../assets/images/mega-icon.png" alt="" v-if="download.nomeServidor === 'Mega'">
                                 <img src="../assets/images/torrent-icon.png" alt="" v-if="download.nomeServidor === 'Utorrent'">
                                 <span>{{download.nomeServidor}}</span>
                             </a>

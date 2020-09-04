@@ -12,13 +12,14 @@
 			</div><!--socBlock-->
 			<div class="footerInfoBlock">
 				<div class="copyBlock">
-					<h3>© 2019 rizeoftheendor.com</h3>
-					<p>This is only a test server for Lineage 2. All rights reserved by Ncsoft.</p>
+					<h3>© 2020 Cabal Berserk</h3>
+					<p>This is only a test server for Cabal online</p>
 					<a href="">Terms of use</a>
 				</div>
 				<div class="dkLogo">
 					<a href="https://dkarts.studio" target="_blank"><img src="../assets/images/dkarts.png" alt=""></a>
 					<p>Design and styling of the site by <a href="https://dkarts.studio" target="_blank">DKarts.Studio</a> studio</p>
+                    <p>Back End Development: <a href="https://www.facebook.com/joeldepaulamonteiro" target="_blank">JPM - Joreel</a></p>
 				</div>
 				<div class="footerMenuBlock flex">
 					<div class="footerMenu">
@@ -47,9 +48,9 @@
 				</div><!--footerMenuBlock-->
 			</div><!--footerInfoBlock-->
 			<div class="logosBlock flex-s-c">
-				<img src="../assets/images/lineage-logo.png" alt="">
-				<img src="../assets/images/g2a-logo.png" alt="">
-				<img src="../assets/images/ncsoft-logo.png" alt="">
+				<img src="../assets/images/RIZE OF ENDOR SMALL.png" alt="">
+				<img src="../assets/images/LINEAGE NAME.png" alt="">
+				<img src="../assets/images/NcSOFT.png" alt="">
 			</div>
 		</div><!--container-->
 	</footer><!--footer-->

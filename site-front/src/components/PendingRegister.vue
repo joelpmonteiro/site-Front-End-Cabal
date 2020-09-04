@@ -9,8 +9,16 @@
             <div class="errorGroup error" v-if="!$v.actCode.minLength">
                 <span class="color-red">Error!</span> Invalid activation code..
             </div>
-            <span class="formGroup-name">Activation code</span>
-            <input type="text" name="login" min="4" maxlength="5" v-model="$v.actCode.$model" @change="$v.actCode.$touch()">
+            <div class="formGroup">
+                <span class="formGroup-name">User</span>
+                <input type="text" name="user" min="4" v-model="$v.sendUser.$model" @change="$v.sendUser.$touch()">
+            </div>
+            <br>
+            <div class="formGroup">
+
+                <span class="formGroup-name">Activation code</span>
+                <input type="text" name="login" min="4" maxlength="5" v-model="$v.actCode.$model" @change="$v.actCode.$touch()">
+            </div>
         </div>
 
         <div class="regButton flex-c">
@@ -42,6 +50,10 @@ export default {
             required,
             minLength: minLength(4),
         },
+        sendUser: {
+            required,
+            minLength: minLength(4),
+        },
     },
     data() {
         return {
@@ -51,7 +63,8 @@ export default {
     },
     methods: {
         activeCodeAccount() {
-            this.sendUser = this.$parent.sendUser;
+            //this.sendUser = this.$parent.sendUser;
+            console.log(this.$parent.sendUser)
             axios.activationAccount({
                 activKey: this.actCode,
                 ID: this.sendUser
@@ -59,6 +72,7 @@ export default {
                 if (value.status == 200) {
                     this.$swal('Success', value.data.msg, 'success')
                     this.$parent.isActivation = false;
+                    this.router.push({name:'home'})
                 } else this.$swal('error', value.data.msg, 'error')
 
             }).catch((err) => {

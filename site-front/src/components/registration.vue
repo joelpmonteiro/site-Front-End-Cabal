@@ -39,10 +39,10 @@
                 </div>
             </div>
 
-            <div class="formGroup">
-                <!-- <span class="formGroup-name">Telefone:</span> -->
+            <!-- <div class="formGroup">
+                <span class="formGroup-name">Telefone:</span>
                 <vue-tel-input v-model="phone" v-bind="bindProps"></vue-tel-input>
-            </div>
+            </div> -->
 
             <div class="formGroup">
 
@@ -153,16 +153,20 @@ export default {
                 id: this.accountId,
                 pass: this.password,
                 email: this.email,
-                phone: this.phone
+                //phone: this.phone
             }).then(response => {
-                if (response.status == 201) {
+                console.log('modify: ',response)
+                if (response.status == 201 && response.data.error == 0) {
                     this.$swal('Sucesso', response.data.mensagem, 'success')
                     this.registerPending = true;
                     this.email = '';
                 } else {
-                    this.$swal('error', response.data.msg, 'error')
+                    console.log('entrou')
+                    this.$swal('error', response.data.mensagem, 'error')
 
                 }
+            }).catch((err) => {
+                this.$swal('error','account registration error, the error was due to invalid information.','error')
             })
         },
     },

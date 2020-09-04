@@ -8,7 +8,7 @@
 					<span></span>
 				</div>
 				<div class="menuBlock-logo">
-					<a href="/"><img src="../assets/images/logo.png" alt="Logo"></a>
+					<a href="/"><img src="../assets/images/slider-img1.png" alt="Logo"></a>
 				</div>
 				<nav class="nav">
 					<ul class="menu flex">

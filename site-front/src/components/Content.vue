@@ -85,13 +85,15 @@
                     <div class="swiper-container swiper-news">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slideImg">
-                                <img class="sliderLogo" src="../assets/images/white-logo.png" alt="">
+                                <img class="sliderLogo" src="../assets/images/slider-img1.png" alt="">
                                 <a href="" class="playButtonSlider bright"></a>
-                                <h2 class="slider-title">NEW <br> WORLD</h2>
                             </div>
-                            <img class="swiper-slide" src="../assets/images/slider-img.jpg" alt="">
-                            <img class="swiper-slide" src="../assets/images/slider-img.jpg" alt="">
-                            <img class="swiper-slide" src="../assets/images/slider-img.jpg" alt="">
+                            <img class="swiper-slide" src="../assets/images/slider-img.png" alt="">
+                            <img class="swiper-slide" src="../assets/images/slider-img2.png" alt="">
+                            <img class="swiper-slide" src="../assets/images/image-2-compressed.jpg" alt="">
+                            <img class="swiper-slide" src="../assets/images/image-3-compressed.jpg" alt="">
+                            <img class="swiper-slide" src="../assets/images/image-4-compressed.jpg" alt="">
+
                         </div>
                         <div class="newsPagination">
                             <!-- Add Pagination -->

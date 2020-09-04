@@ -1706,7 +1706,7 @@ footer .container {
 .modal_div {
     max-width: 532px;
     width: 100%;
-    min-height: 582px;
+    min-height: 365px;
     background: url(../images/modal-content.jpg) center top no-repeat;
     background-size: cover;
     position: fixed;

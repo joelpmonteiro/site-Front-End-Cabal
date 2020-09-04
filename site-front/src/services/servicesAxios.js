@@ -5,14 +5,11 @@ import axios from 'axios';
 //Endereço da API
 axios.defaults.baseURL = 'http://localhost:3000/api/user/'
 let tokenUserData = localStorage.getItem('user-data') == null ? false : true;
-//const token = null;
+
 const decryp = null;
 let AuthStr = 'Bearer ';
 axios.defaults.headers.common['Authorization'] = localStorage.getItem('user-data') === null ? null : localStorage.getItem('user-data');
 
-//const decrypToken = null;
-//const decrypToken = VueJwtDecode.decode(localStorage.getItem('user-data')) == true ? true : null;
-//console.log(axios.defaults.headers.common['Authorization'] = localStorage.getItem('user-data') === null ? null : localStorage.getItem('user-data'))
 const authLogin = async(dados) => {
     let loginSite = await axios.post('account/login', dados)
 
@@ -28,8 +25,8 @@ const authLogin = async(dados) => {
 
 const register = async(dados) => {
     let register = await axios.post('account/create', dados);
-
-    if (register.status === 201) {
+    console.log(register)
+    if (register.status === 201 && register.data.error === 0) {
         return register;
     } else {
         return register;
